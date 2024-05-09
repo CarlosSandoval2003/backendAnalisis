@@ -23,7 +23,7 @@ mongoose.connect("mongodb+srv://jawicho:jawicho123@cluster0.htjfwjt.mongodb.net/
 const dbConfig = {
   user: 'C##Pruebas9',
   password: '12345',
-  connectString: '181.209.233.54:1521/xe'
+  connectString: 'localhost:1521/xe'
 };
 
 async function initialize() {
