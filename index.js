@@ -10,8 +10,12 @@ const oracledb = require('oracledb');
 const bodyParser = require('body-parser');
 const { Console } = require("console");
 
+const corsOptions = {
+  origin: '*'
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
-app.use(cors());
 
 // Database Connection With MongoDB
 mongoose.connect("mongodb+srv://jawicho:jawicho123@cluster0.htjfwjt.mongodb.net/e-commerce");
@@ -23,7 +27,7 @@ mongoose.connect("mongodb+srv://jawicho:jawicho123@cluster0.htjfwjt.mongodb.net/
 const dbConfig = {
   user: 'C##Pruebas9',
   password: '12345',
-  connectString: '181.209.233.54/1521/xe'
+  connectString: '10.132.182.197/1521/xe'
 };
 
 async function initialize() {
@@ -55,7 +59,7 @@ app.post('/upload', (req, res) => {
       return res.status(400).json({ success: 0, message: 'Error al cargar imágenes' });
     }
 
-    const imageUrls = req.files.map((file) => `http://localhost:4000/images/${file.filename}`);
+    const imageUrls = req.files.map((file) => `http://10.132.182.197:4000/images/${file.filename}`);
 
     res.json({
       success: 1,
